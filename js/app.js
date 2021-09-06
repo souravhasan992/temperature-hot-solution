@@ -17,5 +17,10 @@ const setInnerText = (id, text) => {
 const displayTemp = temp => {
     setInnerText('city', temp.name);
     setInnerText('temp', temp.main.temp);
+    setInnerText('condition', temp.weather[0].main);
+    //set weather icon
+    const url=`http://openweathermap.org/img/wn/${temp.weather[0].icon}@2x.png`;
+    const imgIcon= document.getElementById('weather-icon');
+    imgIcon.setAttribute('src', url);
     console.log(temp);
 }
